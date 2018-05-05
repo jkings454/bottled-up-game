@@ -2,11 +2,11 @@ package com.ragequit.bottledup.entities;
 
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
-public class Player extends Actor
+public class Actor extends Entity 
 {
-	Player()
+	Actor()
 	{
 		super();
-		setBodyDef(BodyType.KinematicBody);
+		setBodyDef(BodyType.StaticBody);
 	}
 }
