@@ -6,14 +6,27 @@ import com.badlogic.gdx.physics.box2d.BodyDef.*;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.ragequit.bottledup.physics.WorldManager;
 
+<<<<<<< HEAD
 public abstract class Entity extends Actor
+=======
+public class Entity
+>>>>>>> 4f7ab5af86f108c945c09ba970e2737fc34f9892
 {
 	private BodyDef bodyDef;
 	private Body body;
 	private FixtureDef fixtureDef;
 	private Fixture fixture;
-	private Shape collisionShape;`
+<<<<<<< HEAD
+	private Shape collisionShape;
 	private TextureRegion region;
+=======
+	private Shape collisionShape;`
+	
+	Entity()
+	{
+		createBody(BodyType.StaticBody, new PolygonShape(), new FixtureDef());
+	}
+>>>>>>> 4f7ab5af86f108c945c09ba970e2737fc34f9892
 	
 	protected void createBody(BodyType type, Shape shape, FixtureDef def)
 	{
