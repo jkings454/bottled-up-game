@@ -1,5 +1,6 @@
 package com.ragequit.bottledup.util;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 public final class Constants {
