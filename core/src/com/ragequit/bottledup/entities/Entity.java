@@ -27,6 +27,11 @@ public class Entity
 		fixture = body.createFixture(fixtureDef);
 	}
 	
+	protected Body getBody()
+	{
+		return body;
+	}
+	
 	public void dispose()
 	{
 		collisionShape.dispose();
