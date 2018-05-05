@@ -24,8 +24,6 @@ public class GameplayScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        WorldManager.init();
-
         manager = new AssetManager();
         viewport = new ExtendViewport(800, 800);
         Assets.instance.init(manager);
