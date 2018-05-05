@@ -12,7 +12,7 @@ public abstract class Entity extends Actor
 	private Body body;
 	private FixtureDef fixtureDef;
 	private Fixture fixture;
-	private Shape collisionShape;`
+	private Shape collisionShape;
 	private TextureRegion region;
 	
 	protected void createBody(BodyType type, Shape shape, FixtureDef def)

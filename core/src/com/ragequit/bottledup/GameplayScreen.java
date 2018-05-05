@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.ragequit.bottledup.assets.Assets;
+import com.ragequit.bottledup.entities.Player;
 import com.ragequit.bottledup.physics.WorldManager;
 import com.ragequit.bottledup.util.Constants;
 import com.ragequit.bottledup.util.Helpers;
@@ -17,14 +18,18 @@ public class GameplayScreen extends ScreenAdapter {
     private SpriteBatch batch;
     private float accumulator = 0;
     private AssetManager manager;
+    private Player player;
 
     private ExtendViewport viewport;
 
     @Override
     public void show() {
+        WorldManager.init();
+
         manager = new AssetManager();
         viewport = new ExtendViewport(800, 800);
         Assets.instance.init(manager);
+        player = new Player();
         batch = new SpriteBatch();
     }
 
@@ -37,8 +42,7 @@ public class GameplayScreen extends ScreenAdapter {
 
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
-        TextureRegion region = Assets.instance.menuAssets.menuRegion;
-        Helpers.drawTextureRegion(batch, region, 0, 0);
+        player.draw(batch, 1);
         batch.end();
         doStep(delta);
     }

@@ -8,7 +8,9 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.Pool;
 import com.ragequit.bottledup.entities.Entity;
 
-
+/**
+ * Class for managing and loading stages.
+ */
 public class StageLoader {
     public static final String TAG = StageLoader.class.getName();
     private TiledMap map;
@@ -26,10 +28,12 @@ public class StageLoader {
     }
 
     public TiledMap getMap() {
+        // Access to map for rendering.
         return map;
     }
 
     public Pool<Entity> getPlatforms() {
+        // TODO: Get this done as soon as a platform is defined.
         return null;
     }
 }
