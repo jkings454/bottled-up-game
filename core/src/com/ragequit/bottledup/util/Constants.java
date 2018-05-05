@@ -14,5 +14,5 @@ public final class Constants {
     public static final String PACKFILE_NAME = "atlas";
 
 
-    public static final String TEXTURE_ATLAS = "core/assets/output/atlas.atlas";
+    public static final String TEXTURE_ATLAS = "output/atlas.atlas";
 }

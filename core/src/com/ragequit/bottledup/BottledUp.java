@@ -5,7 +5,6 @@ import com.badlogic.gdx.Game;
 public class BottledUp extends Game {
 	@Override
 	public void create() {
-		GameplayScreen screen = new GameplayScreen();
-		screen.show();
+		setScreen(new GameplayScreen());
 	}
 }
