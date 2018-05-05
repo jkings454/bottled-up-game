@@ -1,13 +1,14 @@
 package com.ragequit.bottledup.entities;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
-public abstract class Actor extends Entity implements IDamagable
+public abstract class SActor extends Entity implements IDamagable
 {
 	private int maxHealth;
 	private int curHealth;
 	
-	Actor()
+	SActor()
 	{
 		super();
 	}
@@ -27,6 +28,5 @@ public abstract class Actor extends Entity implements IDamagable
 	public void destroy() 
 	{
 		
-	}
-	
+	}	
 }
