@@ -27,7 +27,7 @@ public class GameplayScreen extends ScreenAdapter {
 
         world = new World(Constants.GRAVITY, true);
 
-        viewport = new ExtendViewport(800, 800);
+        viewport = new ExtendViewport(Constants.WORLD_WIDTH, Constants.WORLD_HEIGHT);
         player = new Player(world);
         batch = new SpriteBatch();
     }
@@ -35,9 +35,12 @@ public class GameplayScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         viewport.apply();
-
         Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT |
+                GL20.GL_DEPTH_BUFFER_BIT |
+                (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
+
+        player.tick();
 
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();

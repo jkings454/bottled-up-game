@@ -1,6 +1,7 @@
 package com.ragequit.bottledup.entities;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.World;
 import com.ragequit.bottledup.assets.Assets;
@@ -28,40 +29,48 @@ public class Player extends SActor
 		this.setTextureRegion(Assets.instance.playerAssets.playerRegion);
 		
 		PolygonShape box = new PolygonShape();
-		box.setAsBox(1,1);
+		box.setAsBox(Assets.instance.playerAssets.playerRegion.getRegionWidth(),Assets.instance.playerAssets.playerRegion.getRegionHeight());
 		FixtureDef def = new FixtureDef();
+		def.density = 1.0f;
+		def.friction = 0.0f;
 		super.createBody(BodyType.KinematicBody, box, def);
 	}
 	
-	public void Move(float xInput)
+	public void move(float xInput)
 	{
-		getBody().setLinearVelocity(xInput, 0.0f);
+		getBody().setLinearVelocity(xInput * 5000.0f, 0.0f);
 	}
 	
-	public void Jump()
+	public void jump()
 	{
 		pState = PlayerLocomotionState.JUMPING;
-		getBody().setLinearVelocity(0.0f, 1.0f);
+		getBody().setLinearVelocity(0.0f, 10.0f);
 	}
 	
-	public void Tick()
+	public void tick()
 	{
 		switch(pState)
 		{
 			case JUMPING:
 				break;
 			case RUNNING:
-				Move(PlayerInput.horizontalInput(Keys.A, Keys.D));
+				move(PlayerInput.horizontalInput(Keys.A, Keys.D));
 				if(PlayerInput.jumped(Keys.W)) 
 				{
-					Jump();
+					jump();
 				}
 				break;
 			case FALLING:
 				break;
 			default:
 				break;
+				
+			
 		}
+		
+        Vector2 position = getBody().getPosition();
+	    setX(position.x);
+	    setY(position.y);
 	}
 	
 	@Override
