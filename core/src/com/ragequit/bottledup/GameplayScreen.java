@@ -5,16 +5,14 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.ragequit.bottledup.assets.Assets;
 import com.ragequit.bottledup.entities.Player;
-import com.ragequit.bottledup.physics.WorldManager;
 import com.ragequit.bottledup.util.Constants;
-import com.ragequit.bottledup.util.Helpers;
 
 public class GameplayScreen extends ScreenAdapter {
-
+    private World world;
     private SpriteBatch batch;
     private float accumulator = 0;
     private AssetManager manager;
@@ -25,9 +23,12 @@ public class GameplayScreen extends ScreenAdapter {
     @Override
     public void show() {
         manager = new AssetManager();
-        viewport = new ExtendViewport(800, 800);
         Assets.instance.init(manager);
-        player = new Player();
+
+        world = new World(Constants.GRAVITY, true);
+
+        viewport = new ExtendViewport(800, 800);
+        player = new Player(world);
         batch = new SpriteBatch();
     }
 
@@ -54,7 +55,7 @@ public class GameplayScreen extends ScreenAdapter {
         float frameTime = Math.min(deltaTime, 0.25f);
         accumulator += frameTime;
         while(accumulator >= Constants.TIME_STEP) {
-            WorldManager.world.step(Constants.TIME_STEP,
+            world.step(Constants.TIME_STEP,
                     Constants.VELOCITY_ITERATIONS,
                     Constants.POSITION_ITERATIONS);
             accumulator -= Constants.TIME_STEP;

@@ -2,6 +2,7 @@ package com.ragequit.bottledup.entities;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.World;
 import com.ragequit.bottledup.assets.Assets;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
@@ -21,14 +22,14 @@ public class Player extends SActor
 	
 	private PlayerLocomotionState pState = PlayerLocomotionState.RUNNING;
 	
-	public Player()
+	public Player(World world)
 	{
-		setTextureRegion(Assets.instance.menuAssets.menuRegion);
+	    super(world);
+		this.setTextureRegion(Assets.instance.playerAssets.playerRegion);
 		
 		PolygonShape box = new PolygonShape();
 		box.setAsBox(1,1);
 		FixtureDef def = new FixtureDef();
-		
 		super.createBody(BodyType.KinematicBody, box, def);
 	}
 	

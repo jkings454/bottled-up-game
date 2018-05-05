@@ -52,7 +52,9 @@ public class Assets implements Disposable, AssetErrorListener {
     }
 
     public final class PlayerAssets {
+        public final AtlasRegion playerRegion;
         private PlayerAssets(TextureAtlas atlas) {
+            playerRegion = atlas.findRegion("Character/Cricket");
         }
     }
 }

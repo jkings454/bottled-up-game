@@ -2,15 +2,16 @@ package com.ragequit.bottledup.entities;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.World;
 
 public abstract class SActor extends Entity implements IDamagable
 {
 	private int maxHealth;
 	private int curHealth;
 	
-	SActor()
+	SActor(World world)
 	{
-		super();
+		super(world);
 	}
 	
 	public int getHealth()
