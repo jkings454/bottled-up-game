@@ -16,4 +16,7 @@ public final class Constants {
 
 
     public static final String TEXTURE_ATLAS = "output/atlas.atlas";
+
+    public static final float WORLD_WIDTH = 2800;
+    public static final float WORLD_HEIGHT = 2800;
 }

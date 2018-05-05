@@ -1,6 +1,7 @@
 package com.ragequit.bottledup.entities;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.World;
 import com.ragequit.bottledup.assets.Assets;
@@ -63,7 +64,11 @@ public class Player extends SActor
 				break;
 		}
 	}
-	
+	public void update() {
+        Vector2 position = getBody().getPosition();
+	    setX(position.x);
+	    setY(position.y);
+    }
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
