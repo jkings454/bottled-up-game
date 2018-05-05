@@ -4,13 +4,13 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.*;
 import com.ragequit.bottledup.physics.WorldManager;
 
-public class Entity 
+public class Entity
 {
 	private BodyDef bodyDef;
 	private Body body;
 	private FixtureDef fixtureDef;
 	private Fixture fixture;
-	private Shape collisionShape;
+	private Shape collisionShape;`
 	
 	Entity()
 	{
