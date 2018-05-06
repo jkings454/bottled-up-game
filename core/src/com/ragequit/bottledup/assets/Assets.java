@@ -21,6 +21,7 @@ public class Assets implements Disposable, AssetErrorListener {
     private TextureAtlas atlas;
 
     private Assets() {
+
     }
 
     public void init(AssetManager assetManager) {

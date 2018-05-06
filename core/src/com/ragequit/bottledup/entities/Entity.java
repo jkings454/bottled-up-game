@@ -22,7 +22,7 @@ public abstract class Entity extends Actor
 	protected void createBody(BodyType type, Shape shape, FixtureDef def)
 	{
 		bodyDef = new BodyDef();
-		bodyDef.type = BodyType.DynamicBody;
+		bodyDef.type = type;
 		body = world.createBody(bodyDef);
 		collisionShape = shape;
 		fixtureDef = def;

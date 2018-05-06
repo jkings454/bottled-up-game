@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.ragequit.bottledup.util.Constants;
 import com.ragequit.bottledup.util.Helpers;
 
 public class Player extends SActor
@@ -38,7 +39,8 @@ public class Player extends SActor
 	
 	public void move(float xInput)
 	{
-		getBody().setLinearVelocity(xInput * 5000.0f, 0.0f);
+	    getBody().setAwake(true);
+        getBody().setLinearVelocity(xInput * Constants.VELOCITY_FACTOR, 0);
 	}
 	
 	public void jump()
@@ -72,16 +74,11 @@ public class Player extends SActor
 	    setX(position.x);
 	    setY(position.y);
 	}
-	public void update() {
-        Vector2 position = getBody().getPosition();
-	    setX(position.x);
-	    setY(position.y);
-    }
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{
 		Color color = getColor();
 		batch.setColor(color.r, color.g, color.b, color.a * parentAlpha);
-        Helpers.drawTextureRegion((SpriteBatch) batch, getTextureRegion(), getX(), getY());
+        Helpers.drawTextureRegion((SpriteBatch) batch, getTextureRegion(), getX(), getY(), Constants.WORLD_SCALE);
 	}
 }
