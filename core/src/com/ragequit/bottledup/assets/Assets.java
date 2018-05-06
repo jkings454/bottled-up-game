@@ -15,6 +15,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
     public PlayerAssets playerAssets;
     public MenuAssets menuAssets;
+    public BottleAssets bottleAssets;
 
     private AssetManager manager;
     private TextureAtlas atlas;
@@ -31,6 +32,7 @@ public class Assets implements Disposable, AssetErrorListener {
         atlas = manager.get(Constants.TEXTURE_ATLAS);
         playerAssets = new PlayerAssets(atlas);
         menuAssets = new MenuAssets(atlas);
+        bottleAssets = new BottleAssets(atlas);
     }
 
     @Override
@@ -55,6 +57,13 @@ public class Assets implements Disposable, AssetErrorListener {
         public final AtlasRegion playerRegion;
         private PlayerAssets(TextureAtlas atlas) {
             playerRegion = atlas.findRegion("Character/Cricket");
+        }
+    }
+
+    public final class BottleAssets {
+        public final AtlasRegion bottleRegion;
+        private BottleAssets(TextureAtlas atlas) {
+            bottleRegion = atlas.findRegion("Bottles/Bottle1");
         }
     }
 }

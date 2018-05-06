@@ -72,7 +72,11 @@ public class Player extends SActor
 	    setX(position.x);
 	    setY(position.y);
 	}
-	
+	public void update() {
+        Vector2 position = getBody().getPosition();
+	    setX(position.x);
+	    setY(position.y);
+    }
 	@Override
 	public void draw(Batch batch, float parentAlpha)
 	{

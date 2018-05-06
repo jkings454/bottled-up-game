@@ -35,13 +35,16 @@ public class GameplayScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         viewport.apply();
-
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT |
                 GL20.GL_DEPTH_BUFFER_BIT |
                 (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
 
+<<<<<<< HEAD
         player.tick();
+=======
+        player.update();
+>>>>>>> bacbc0b909cf095ff9736678bbc5991fc99cd1f5
 
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
